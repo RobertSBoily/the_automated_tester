@@ -1,0 +1,1 @@
+This is a projecty for executing tests for the pages at http://book.theautomatedtester.co.uk/
