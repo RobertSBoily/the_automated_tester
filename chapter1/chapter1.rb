@@ -1,6 +1,4 @@
-# For 
-require "selenium-webdriver"
-require "rspec"
+require_relative "helper.rb"
 require_relative "index_page.rb"
 
 index_url = "http://book.theautomatedtester.co.uk/"
