@@ -5,7 +5,7 @@ class IndexPage
 	EXPECTED_URL = "http://book.theautomatedtester.co.uk/"
 
 	# ID selectors
-	text_input = { id: "q" }
+	TEXT_INPUT = { id: "q" }
 
 	# Text selectors
 	CHAPTER_1 = { link_text: "Chapter1" }
@@ -19,7 +19,8 @@ class IndexPage
 	def initialize(driver)
 		@driver = driver
 		if driver.current_url != EXPECTED_URL
-			raise WrongPageError(driver, EXPECTED_URL)
+			raise WrongPageError.new(driver, EXPECTED_URL)
+		end
 	end
 
 	def click_chapter_1
@@ -48,7 +49,7 @@ class IndexPage
 	end
 
 	def type_text_input(string)
-		field = @driver.find_element(text_input)
+		field = @driver.find_element(TEXT_INPUT)
 		field.send_keys(string)
 	end
 
