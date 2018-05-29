@@ -10,7 +10,6 @@ describe "Index page" do
 			@driver = get_driver(index_url)
 			index_page = IndexPage.new(@driver)
 			index_page.click_chapter_1
-			sleep(5)
 			# Confirm we are now on the Chapter 1 page
 			expect(@driver.current_url).to eq (chapter_1_url)
 			@driver.quit
