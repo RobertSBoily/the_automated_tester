@@ -1,5 +1,3 @@
-require_relative "helper.rb"
-
 class IndexPage
 
 	EXPECTED_URL = "http://book.theautomatedtester.co.uk/"
@@ -12,7 +10,7 @@ class IndexPage
 	CHAPTER_2 = { link_text: "Chapter2" }
 	CHAPTER_3 = { link_text: "Chapter3" }
 	CHAPTER_4 = { link_text: "Chapter4" }
-	CHAPTER_8 = { link_text: "Chapter8" }
+	CHAPTER_8 = { link_text: "Chapter8" } # Not a typo.
 
 	attr_reader :driver
 
@@ -23,9 +21,10 @@ class IndexPage
 		end
 	end
 
+# These should return page objects of the types they link to.
 	def click_chapter_1
 		link = @driver.find_element(CHAPTER_1)
-		link.click()
+		link.click
 	end
 
 	def click_chapter_2
