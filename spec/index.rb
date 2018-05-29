@@ -10,10 +10,12 @@ describe "Index page" do
 			@driver = get_driver(index_url)
 			index_page = IndexPage.new(@driver)
 			chapter1_page = index_page.click_chapter_1
+
 			chapter1_page.click_radio_button
+			puts chapter1_page.get_dropdown_options
 			# Confirm we are now on the Chapter 1 page
 			expect(@driver.current_url).to eq (chapter_1_url)
-			@driver.quit
+			shutdown(@driver)
 		end
 	end
 end

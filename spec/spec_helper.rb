@@ -30,6 +30,10 @@ def get_driver(start_url, browser=:firefox)
   return driver
 end
 
+def shutdown(driver)
+  driver.quit
+end
+
 
 
 RSpec.configure do |config|
