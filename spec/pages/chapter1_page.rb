@@ -6,6 +6,12 @@ class Chapter1Page
 	RADIO_BUTTON = { id: "radiobutton" }
 	SELENIUM_DROPDOWN = { id: "selecttype" }
 
+	# Name selectors
+	CHECKBOX = { name: "selected(1234)" }
+
+	# Link text selectors
+	HOMEPAGE = { link_text: "Home Page" }
+
 	attr_reader :driver
 
 
@@ -16,6 +22,18 @@ class Chapter1Page
 		end
 	end
 
+	def click_checkbox
+		cb = driver.find_element(CHECKBOX)
+		cb.click
+		self
+	end
+
+	def click_home_page
+		link = driver.find_element(HOMEPAGE)
+		link.click
+		IndexPage.new(@driver)
+	end
+
 	def click_radio_button
 		radio = @driver.find_element(RADIO_BUTTON)
 		radio.click()
@@ -23,7 +41,7 @@ class Chapter1Page
 	end
 
 	# Could maybe simplify these a bit my using an instance variable for menu.
-	# These functions are similar to attr_accessor, but we want additional behaviours (e.g. setter changes the page).
+	# These 3 functions are similar to attr_accessor, but we want additional behaviours (e.g. setter changes the page).
 	def dropdown=(value)
 		# Public: Must select value by its text value, e.g. "Selenium IDE"
 		menu = driver.find_element(SELENIUM_DROPDOWN)
@@ -49,6 +67,8 @@ class Chapter1Page
 		end
 		texts
 	end
+
+
 
 
 

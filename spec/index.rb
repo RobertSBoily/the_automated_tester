@@ -12,9 +12,9 @@ describe "Index page" do
 			chapter1_page = index_page.click_chapter_1
 
 			chapter1_page.click_radio_button
-			puts chapter1_page.get_dropdown_options
-			# Confirm we are now on the Chapter 1 page
-			expect(@driver.current_url).to eq (chapter_1_url)
+			index_page = chapter1_page.click_home_page
+
+			sleep(5)
 			shutdown(@driver)
 		end
 	end
